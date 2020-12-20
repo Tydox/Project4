@@ -138,6 +138,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AirlineTicket.cpp" />
+    <ClCompile Include="Capsule.cpp" />
+    <ClCompile Include="DateTime.cpp" />
+    <ClCompile Include="First.cpp" />
+    <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Person.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirlineTicket.h" />
+    <ClInclude Include="Capsule.h" />
+    <ClInclude Include="DateTime.h" />
+    <ClInclude Include="First.h" />
+    <ClInclude Include="Flight.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
