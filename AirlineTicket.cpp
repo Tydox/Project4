@@ -83,7 +83,7 @@ ostream& operator<<(ostream& out, const AirlineTicket& ticket)
 	out << left << setw(20) << setfill(' ') << ticket.ticketNumber;
 	out << left << setw(12) << setfill(' ') << ticket.Meal2String(ticket.meal);
 	out << left << setw(15) << setfill(' ') << ticket.TicketType2String(ticket.ticketType);
-	out << left << setw(93) << setfill(' ') << "" << endl << endl;
+	out << left << setw(93) << setfill(' ') << "" << endl;
 	//out << (ticket.passenger);
 	return out;
 }

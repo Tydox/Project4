@@ -11,14 +11,14 @@ void main()
 			//capsule standard class:
 			Capsule cr(50, 150);
 			for (int i = 0; i < 3; i++)
-				cr.operator+=(new AirlineTicket);
-			cr.operator-=(cr.getTickets()[1]);
+				cr.operator+=(*(new AirlineTicket));
+			cr.operator-=(*(cr.getTickets()[1]));
 
 			//capsule first class:
 			Person bartender("123456789", "Maayan", BARTENDER);
 			First fc(bartender, 50, 550, true, true);
 			for (int i = 0; i < 3; i++)
-				fc.operator+=(new AirlineTicket());
+				fc.operator+=(*(new AirlineTicket()));
 			DateTime departure(2020, 12, 30, 10, 30);
 			DateTime arrival(2020, 1, 31, 22, 30);
 
@@ -39,12 +39,17 @@ void main()
 			cout << endl << "Number of available seats on flight number " << f1.getFlightId() << " in first class capsule is: " << availableFirst<<endl;
 			cout << endl << "Number of available seats on flight number " << f1.getFlightId() << " in standard class capsule is: " << availableCapsule<<endl;
 		}
-		catch (logic_error ex)
+		catch (logic_error& ex)
 		{
 			cout << ex.what() << "Try Again!\n";
 			continue;
 		}
-		catch (invalid_argument ex)
+		catch (invalid_argument& ex)
+		{
+			cout << ex.what() << "Try Again!\n";
+			continue;
+		}
+		catch(out_of_range& ex)
 		{
 			cout << ex.what() << "Try Again!\n";
 			continue;

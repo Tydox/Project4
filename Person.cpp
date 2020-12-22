@@ -22,10 +22,10 @@ algorithm:Enter ID number and name per person and call setter for fole
 */
 Person::Person(Role role)
 {
-	char tmpId[9], tmpName[100];
+	char tmpId[10], tmpName[100];
 	cout << "enter id: ";
 	cin.ignore(cin.rdbuf()->in_avail());
-	cin.getline(tmpId, 9);
+	cin.getline(tmpId, 10);
 	setId(tmpId);
 	cout << "enter full name: ";
 	cin.ignore(cin.rdbuf()->in_avail());
@@ -68,10 +68,10 @@ void Person::setId(const char* id)
 		throw invalid_argument("Argument passed to SetID is NULL");
 
 	
-	int length=strlen(fullName);//get size of id
+	int length=strlen(id);//get size of id
 	for(int i=0;i<length;++i)
 	{
-		if(!(fullName[i]>='0' && fullName[i]<='9'))
+		if(!(id[i]>='0' && id[i]<='9'))
 			throw logic_error("Logic Error SetID: ID Contains Characters");
 	}
 	
@@ -169,8 +169,8 @@ ostream& operator<<(ostream& out, const Person& p)
 	out << left << setw(12) << setfill(' ') << "";
 	out << left << setw(12) << setfill(' ') << p.id << " ";
 	out << left << setw(12) << setfill(' ') << p.fullName << " ";
-	out << left << setw(12) << setfill(' ') << p.role << " ";
-	out << left << setw(93) << setfill(' ') << "" << endl << endl;
+	out << left << setw(12) << setfill(' ') << (p.role == PASSENGER ? "PASSENGER" : p.role == PILOT ? "PILOT" : p.role == BARTENDER ? "BARTENDER" : "STEWARDESS");
+	out << left << setw(93) << setfill(' ') << "" << endl;
 	return out;
 }
 
