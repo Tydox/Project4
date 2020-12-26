@@ -24,9 +24,13 @@ Person::Person(Role role)
 {
 	char tmpId[10], tmpName[100];
 	cout << "enter id: ";
+	cin.clear();
+	fflush(stdin);
 	cin.ignore(cin.rdbuf()->in_avail());
 	cin.getline(tmpId, 10);
 	setId(tmpId);
+	cin.clear();
+	fflush(stdin);
 	cout << "enter full name: ";
 	cin.ignore(cin.rdbuf()->in_avail());
 	cin.getline(tmpName, 100);
@@ -69,6 +73,9 @@ void Person::setId(const char* id)
 
 	
 	int length=strlen(id);//get size of id
+	if (length != 9)
+		throw invalid_argument("ID size isn't valid, must be 9 digits!");
+	
 	for(int i=0;i<length;++i)
 	{
 		if(!(id[i]>='0' && id[i]<='9'))

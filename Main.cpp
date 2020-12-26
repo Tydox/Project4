@@ -8,7 +8,7 @@ void main()
 
 		try {
 
-			//capsule standard class:
+			////capsule standard class:
 			Capsule cr(50, 150);
 			for (int i = 0; i < 3; i++)
 				cr.operator+=(*(new AirlineTicket));
@@ -22,7 +22,7 @@ void main()
 			DateTime departure(2020, 12, 30, 10, 30);
 			DateTime arrival(2020, 1, 31, 22, 30);
 
-			//build flight:
+			////build flight:
 			Flight f1(cr, fc, 6, "New York", departure, arrival);
 			Person ploit("741852963", "Noa", PILOT);
 			Person stewardess1("159753852", "Moria", STEWARDESS);
@@ -34,29 +34,42 @@ void main()
 			f1.operator+=(stewardess3);
 			f1.operator-=(stewardess2);
 			cout << f1;
+
+			std::cout << "\n1\n";
 			int availableFirst = f1.getCapsuleFirstClass();
+			//int availableFirst = 1;
+			std::cout << "\n2\n";
 			int availableCapsule = f1.getCapsuleClassRegular();
+
+			////int availableCapsule = 2;
+			std::cout << "\n3\n";
 			cout << endl << "Number of available seats on flight number " << f1.getFlightId() << " in first class capsule is: " << availableFirst<<endl;
 			cout << endl << "Number of available seats on flight number " << f1.getFlightId() << " in standard class capsule is: " << availableCapsule<<endl;
-		}
-		catch (logic_error& ex)
-		{
-			cout << ex.what() << "Try Again!\n";
-			continue;
+			std::cout << "\n4\n";
 		}
 		catch (invalid_argument& ex)
 		{
 			cout << ex.what() << "Try Again!\n";
 			continue;
 		}
-		catch(out_of_range& ex)
+		catch (out_of_range& ex)
 		{
 			cout << ex.what() << "Try Again!\n";
 			continue;
 		}
+		catch (logic_error& ex)
+		{
+			cout << ex.what() << "Try Again!\n";
+			continue;
+		}
+		catch(char* x)
+		{
+			cout << x << "Try Again!\n";
+			continue;
+		}
 		catch (...)
 		{
-			cout << "Unknown Error as been made, please contact administaror" << ", Try again!";
+			cout << "Unknown Error as been made, please contact administaror" << ", Try again!\n";
 			continue;
 		}
 		break;

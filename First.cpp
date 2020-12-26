@@ -12,8 +12,7 @@ void First::setMozeg(const Person& mozegi)
 		if(mozegi.getRole()!=BARTENDER)
 			throw logic_error("Bartender Required");
 
-		mozeg = new Person;
-		*mozeg = mozegi;
+	mozeg = &mozegi;
 	}
 
 ostream& operator<<(ostream& out, const First& f)

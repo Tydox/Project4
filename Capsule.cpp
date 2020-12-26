@@ -11,12 +11,14 @@ void Capsule::operator+=(AirlineTicket& tk)
 			throw invalid_argument("Error: Operator +=, Given Ticket already exist");
 
 
-	AirlineTicket** newALT = new AirlineTicket * [numOfTickets+1];
+	AirlineTicket** newALT = new AirlineTicket * [numOfTickets + 1];
 
 	if(isEmpty()) //first ticket to add
 	{
-		newALT[0] = &tk;
+		newALT[0] = new AirlineTicket(tk);
 		at = newALT;
+		/*newALT[0] = &tk;
+		at = newALT;*/
 		++numOfTickets;
 		return;
 	}
@@ -25,7 +27,8 @@ void Capsule::operator+=(AirlineTicket& tk)
 	{
 		newALT[i] = at[i];//copy old pointers to new array
 	}
-	newALT[i] = &tk;//copy new ticket to new slot
+	//newALT[i] = &tk;//copy new ticket to new slot
+	newALT[i] = new AirlineTicket(tk);
 
 	delete[] at;
 
