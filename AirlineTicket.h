@@ -25,9 +25,7 @@ class AirlineTicket
 	//private methods: setting ticket number
 	void setTicketNumber(const int& )throw(const char*);//private method that checks ticketnumber validation and assign this value
 public:
-	
-	//CHECK IF NEED TO CREATE DEFAULT CONSTRUCTOR
-	
+	//construcor + default empty constructor	
 	AirlineTicket(TicketType ticketType = oneWay);
 	AirlineTicket(const AirlineTicket& );
 

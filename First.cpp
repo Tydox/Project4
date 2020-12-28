@@ -2,21 +2,22 @@
 
 First::First(const Person& mozegi, int cap, int price, bool lay, bool enter):Capsule(price,cap)
 {
-	setLaying(lay);
-	setEntertainment(enter);
-	setMozeg(mozegi);
+	setLaying(lay); //call method to set if chairs are laying
+	setEntertainment(enter); // call method to set if there is entertainment on first class
+	setMozeg(mozegi); // set who the stewardess is 
 }
 
 void First::setMozeg(const Person& mozegi)
 	{
-		if(mozegi.getRole()!=BARTENDER)
-			throw logic_error("Bartender Required");
+		if(mozegi.getRole()!=BARTENDER) //check if a person has valid role
+			throw logic_error("Bartender Required"); //if not throw exception
 
-	mozeg = &mozegi;
+	mozeg = &mozegi; //set given person(mozegi) as the first class stewardess(mozeg)
 	}
 
 ostream& operator<<(ostream& out, const First& f)
 {
+	//prints out the whole first class data
 	out << left << setw(25) << setfill(' ') << "Capsule First class:"<<endl;
 	out << left << setw(17) << setfill(' ') << "Print Capsule:";
 	out << left << setw(10) << setfill(' ') << "Laying";

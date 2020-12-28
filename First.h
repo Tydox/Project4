@@ -9,8 +9,9 @@ class First: public Capsule
 	const Person* mozeg;
 
 	public:
-	//constructor
+	//constructor which acts as a copy constructor as well
 	First(const Person& mozegi,int cap=0, int price=0,bool lay=false, bool enter=false);
+
 	//gets
 	bool getLaying()const {return laying;}
 	bool getEntertainment()const {return entertainment;}
@@ -19,14 +20,13 @@ class First: public Capsule
 	void setLaying(bool x){laying=x;}
 	void setEntertainment(bool x){entertainment=x;}
 	void setMozeg(const Person& mozegi);
+
 	//operator overloading
 	friend ostream& operator<< (ostream& out, const First& f);
-	//operator int() const { Capsule tmp = *this; return tmp; }
-	
 	void operator+=(AirlineTicket& tk) { Capsule::operator+=(tk); }
 	void operator-=(AirlineTicket& tk) { Capsule::operator-=(tk); }
 
-	//~First(){ std::cout << "\n\nFirst Destructor\n";}
-	
+	//destructor - prints when being used for debug
+	//~First(){ std::cout << "\nFirst Destructor";}
 };
 
